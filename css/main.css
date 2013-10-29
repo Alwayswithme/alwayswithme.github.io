@@ -16,18 +16,20 @@ body {
   background-color: #FFF;
   font: 13.34px Helvetica, Arial, sans-serif;
   font-size: small;
+  background:url('../images/white_texture.png') repeat;
+  color: rgb(34, 34, 34);
   text-align: center;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-size: 100%; }
 
-h1 { margin-bottom: 1em; }
+h1, h2 { color: #4183c4 }
 p { margin: 1em 0; }
 
-a         { color: #00a; }
-a:hover   { color: #000; }
-a:visited { color: #a0a; }
+a,a:link         { text-decoration:none; color: #4183c4; }
+a:hover   { text-decoration:underline; color: #000; }
+a:visited { color: #4183c4; }
 
 /*****************************************************************************/
 /*
@@ -48,6 +50,9 @@ ul.posts span {
   font-family: Monaco, "Courier New", monospace;
   font-size: 80%;
 }
+ul {
+  list-style-type: disc;
+}
 
 /*****************************************************************************/
 /*
@@ -63,35 +68,65 @@ ul.posts span {
   line-height: 1.5em;
 }
 
-.site .header a {
+header {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.70);
+  border-bottom: thin solid black;
+  box-shadow: 0 0 5px rgb(28, 28, 28);
+  position: fixed;
+  z-index: 50;
+  left: 0;
+  top: 0;
+}
+header nav {
+  float: right;
+  margin: 1em 8% 1em 0;
+}
+
+header ul li {
+  display: inline-block;
+  font-weight: bold;
+  transition: transform 0.7s ease-in;
+}
+
+header ul li:hover {
+  transform: rotate(360deg);
+}
+header ul li a {
+  padding: 5px;
+}
+
+header ul li a:hover {
+  box-shadow: 3px 3px 5px rgb(54, 108, 216);
+  border: 3px solid rgb(102, 217, 239);
+  border-radius: 5px;
+}
+.header a {
   font-weight: bold;
   text-decoration: none;
 }
 
-.site .header h1.title {
+.header h1.title {
   display: inline-block;
-  margin-bottom: 2em;
+  float: left;
+  margin: 1em 0 1em 8%;
 }
 
-.site .header h1.title a {
+.header h1.title a {
   color: #a00;
 }
 
-.site .header h1.title a:hover {
+.header h1.title a:hover {
   color: #000;
 }
 
-.site .header a.extra {
+.header a.extra {
   color: #aaa;
   margin-left: 1em;
 }
 
-.site .header a.extra:hover {
+.header a.extra:hover {
   color: #000;
-}
-
-.site .meta {
-  color: #aaa;
 }
 
 .site .footer {
@@ -140,14 +175,23 @@ ul.posts span {
 
 .post code {
   border: 1px solid #ddd;
-  background-color: #eef;
   padding: 0 .2em;
 }
 
 .post pre code {
+  color: white;
   border: none;
 }
 
+.post pre {
+  background-color:#1d1d1e;
+  box-shadow:2px 3px 5px black;
+  font-family: "Ubuntu Mono", Monaco, Consolas, Courier, monospace;
+  border: 2px solid;
+  border-color: gainsboro;
+  border-radius: 8px;
+
+}
 /* terminal */
 .post pre.terminal {
   border: 1px solid #000;
@@ -157,4 +201,22 @@ ul.posts span {
 
 .post pre.terminal code {
   background-color: #333;
+}
+
+/* date */
+time {
+  font-size: 80%;
+  color: white;
+  border-radius: 5px;
+  background-color:steelblue;
+  font-family: Georgia, serif;
+  padding: 0.2em 0.5em;
+  text-shadow:1px 1px 2px black;
+  box-shadow: 2px 0px 5px rgb(54, 108, 216);
+  border:2px solid white;
+}
+
+/* code */
+code {
+  font-family: "Ubuntu Mono", Monaco, Consolas, Courier, monospace;
 }

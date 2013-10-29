@@ -1,0 +1,141 @@
+@import url(//fonts.googleapis.com/css?family=Vollkorn:400);
+@import url(//fonts.googleapis.com/css?family=Galdeano:400);
+@import url(//fonts.googleapis.com/css?family=Ubuntu+Mono);
+body {
+    font-family:"Galdeano", "Droid Sans", "微软雅黑",Simsum, Sans-serif;
+    background:url('../images/white_texture.png') repeat;
+    color: rgb(34, 34, 34);
+    font-size: 17px;
+}
+
+h1 {
+    font-size:37px;
+    color: rgb(44, 29, 0);
+}
+h2 {
+    color:rgb(65, 131, 196);
+    font-size:120%;
+    padding:10px 10px 0;
+    margin-bottom:0;
+    clear:left;
+}
+.subtitle p {
+    font-family:Vollkorn,"微软雅黑",Simsum;
+    font-weight:bold;
+    font-size:14px;
+    vertical-align: bottom;
+    margin:0
+}
+h1, h2, h3 {
+    font-family:Vollkorn,"Droid Sans","微软雅黑",Simsum;
+}
+span em {
+    display:block;
+    text-align:right;
+padding:0 50px 0 0;}
+.name {
+    float:left;
+    margin-top:2%;
+    margin-left:7%;
+    text-align:left;
+}
+.name div p {
+    font-family: "Ubuntu Mono",monospace;
+}
+.contact {
+    float:right;
+    margin-top:13%;
+    color: rgb(65, 131, 196);
+}
+.name, .contact {
+    width:30%;
+    display:block;
+}
+.clearboth {
+    clear:both;
+}
+/* 标题下方分界线 */
+.split {
+    border-bottom:1px dotted;
+    width:86%;
+    margin:0 7% 15px;
+    color:rgb(65, 131, 196);
+}
+/* 副标题 */
+.subtitle {
+    float:left;
+    width:14%;
+    height:30px;
+    margin-left:5%;
+    text-align:right;
+}
+.context {
+    margin-left:17%;
+    padding-left:50px;
+    line-height:1.7em;
+margin-bottom:10px;}
+.context p{
+    margin-top:0;
+}
+#header {
+text-align:center;}
+#article,
+article {
+    max-width:800px;
+    min-width:700px;
+    margin:3% auto 3%;
+}
+.main {
+    position:relative;
+    z-index:20;
+    background:rgba(255,255,255,0.5);
+    border:1px solid rgba(230, 211, 211, 0.5);
+box-shadow:5px 5px 10px 5px rgba(0,102,204,0.6);}
+
+a,
+a:link,
+a:visited {
+    color: rgb(65, 131, 196);
+    white-space:nowrap;
+    text-decoration:none;
+}
+a:hover {
+    text-decoration:underline;
+}
+a:active, a:hover {
+    outline:0px none;
+}
+.pager-tabs {
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 18px;
+    margin:0px;
+}
+.pager-tabs li {
+    text-align: center;
+    display: inline-block;
+    width:218px;
+box-shadow:1px 1px -1px -2px rgba(0,102,204,0.6);
+}
+.pager-tabs li a {
+    position: relative;
+    background:rgba(255,255,255,0.4);
+    border-radius: 0.9em 0.9em 0 0;
+    border:1px solid rgba(230, 211, 211, 0.5);
+    border-width:thin;
+    z-index: 10;
+    display:block;
+    height:40px;
+    line-height:40px;
+}
+.pager-tabs li a.selected {
+    z-index: 20;
+    color:rgb(72,72,72);
+    background:rgba(255,255,255,0.95);
+}
+#email {
+    list-style-image:url(../images/email.png);
+}
+#phone {
+    list-style-image:url(../images/phone.png);
+}

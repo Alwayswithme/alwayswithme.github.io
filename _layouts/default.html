@@ -12,33 +12,39 @@
         <!-- Custom CSS -->
         <link rel="stylesheet" href="/css/main.css">
 
+        <link rel="shortcut icon" href="favicon.ico" />
     </head>
     <body>
 
-        <div class="site">
           <header class="header">
             <h1 class="title"><a href="/">{{ site.name }}</a></h1>
-            <a class="extra" href="/">home</a>
+
+            <nav>
+              <ul>
+                <li><a class="extra" href="/">home</a></li>
+                <li><a class="extra" href="/">about</a></li>
+                <li><a class="extra" href="/resume.html">resume</a></li>
+              </ul>
+            </nav>
           </header>
 
+        <div class="site">
           {{ content }}
-
-          <footer class="footer">
-            <div class="contact">
-              <p>
-                Your Name<br />
-                What You Are<br />
-                <a href="mailto:phx13ye@gmail.com" >phx13ye@gmail.com</a>
-              </p>
-            </div>
-            <div class="contact">
-              <p>
-                <a href="https://github.com/yourusername">github.com/yourusername</a><br />
-                <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
-              </p>
-            </div>
-          </footer>
+<footer class="footer">
+          <div class="contact">
+            <p>
+            Phoenix Yip<br />
+            What You Are<br />
+            <a href="mailto:phx13ye@gmail.com" >phx13ye@gmail.com</a>
+            </p>
+          </div>
+          <div class="contact">
+            <p>
+            <a href="https://github.com/alwayswithme">github.com/alwayswithme</a><br />
+            <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+            </p>
+          </div>
+        </footer>
         </div>
-
     </body>
 </html>
