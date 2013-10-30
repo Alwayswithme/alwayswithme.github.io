@@ -11,22 +11,22 @@ categories: jekyll update
 
 部署过程大致如下
 {% highlight bash %}
-$yum install ruby gcc
+$ yum install ruby gcc
 
-#gem 换淘宝源
-$gem sources --remove https://rubygems.org/
-$gem sources -a http://ruby.taobao.org
+# gem 换淘宝源
+$ gem sources --remove https://rubygems.org/
+$ gem sources -a http://ruby.taobao.org
 
-#在家新建一个website
-$cd; jekyll new alwayswithme
+# 在家新建一个website
+$ cd; jekyll new alwayswithme
 
-#启动服务器
-$jekyll serve --watch
+# 启动服务器
+$ jekyll serve --watch
 
-#地址栏输入0:4000应该可以看到生成页面
+# 地址栏输入0:4000应该可以看到生成页面
 
-#使用git pages前准备一个username.github.io的仓库
-$git init
-$git remote add origin git@github.com:Alwayswithme/alwayswithme.github.io.git
-$git add . && git commit -m 'initial commit'
+# 使用git pages前准备一个username.github.io的仓库
+$ git init
+$ git remote add origin git@github.com:Alwayswithme/alwayswithme.github.io.git
+$ git add . && git commit -m 'initial commit'
 {% endhighlight %}
