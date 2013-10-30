@@ -5,12 +5,13 @@ date:   2013-10-30 13:31:00
 categories: jekyll update
 ---
 
-** 语法高亮测试
+### 语法高亮测试 ###
 
 选用了我最喜欢的Monokai配色  
 
-随便写几道找工作被问道的笔试题  
-Python快排简便写法,以后笔试就用它
+随便写几道找工作被问到的笔试题  
+
+- Python快排简便写法,以后笔试就用它
 {% highlight python %}
 def quick(L):
   if not L: return []
@@ -18,7 +19,10 @@ def quick(L):
     quick([x for x in L[1:] if x x >= L[0]])
 {% endhighlight %}
 
-给定一个数组,求其子序列最大乘积的部分,给出起始索引和终止索引
+  
+  
+
+- 给定一个数组,求其子序列最大乘积的部分,给出起始索引和终止索引
 {% highlight java %}
 import java.util.Arrays;
 import java.util.List;
@@ -53,5 +57,21 @@ public class MaxSubsequence {
 //=> Max subsequence is: [7, 4, 6]
 //=> Start index: 7
 //=> End index: 9
+{% endhighlight %}
 
+- 删除多余的空白
+{% highlight java %}
+import static java.lang.System.out;
+
+public class Trim {
+  public static void main(String[] args) {
+    String temp = "    Jekyll     is    the     best  "
+      + "static  site generator   ever!    ";
+    out.println(temp.replaceAll("^ *", "").replaceAll(" +", " ").replaceAll(" $",""));
+  }
+}
+/*
+ *  Output:
+ *  => Jekyll is the best static site generator ever!
+ */
 {% endhighlight %}
