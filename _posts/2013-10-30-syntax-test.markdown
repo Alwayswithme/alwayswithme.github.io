@@ -76,7 +76,7 @@ public class Trim {
  */
 {% endhighlight %}
 
-- 魔幻在阵
+- 魔幻方阵
 {% highlight java %}
 public class MagicMatrix {
   public static final int N = 5;
