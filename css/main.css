@@ -14,7 +14,7 @@ html, body { height: 100%; }
 
 body {
   background-color: #FFF;
-  font: 13.34px Helvetica, Arial, sans-serif;
+  font: 13.34px "Microsoft YaHei",Helvetica, Arial, sans-serif;
   font-size: small;
   background:url('../images/white_texture.png') repeat;
   color: rgb(34, 34, 34);
@@ -87,10 +87,12 @@ header ul li {
   display: inline-block;
   font-weight: bold;
   transition: transform 0.7s ease-in;
+  -webkit-transition: -webkit-transform 0.7s ease-in;
 }
 
 header ul li:hover {
   transform: rotate(360deg);
+  -webkit-transform:rotate(360deg);
 }
 header ul li a {
   padding: 5px;
@@ -174,8 +176,9 @@ header ul li a:hover {
 }
 
 .post code {
-  border: 1px solid #ddd;
+  border: 2px solid #ddd;
   padding: 0 .2em;
+  color: blueviolet;
 }
 
 .post pre code {
@@ -218,5 +221,5 @@ time {
 
 /* code */
 code {
-  font-family: "Ubuntu Mono", Monaco, Consolas, Courier, monospace;
+  font-family: "Ubuntu Mono", Monaco, Consolas, Courier,"Microsoft YaHei", monospace;
 }
