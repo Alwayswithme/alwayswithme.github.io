@@ -41,13 +41,14 @@ public class MaxSubsequence {
     currSum = 1;
     for (int i = 0; len = arr.length; i < len; i++) {
       currSum *= arr[i];
-      maxSum = thisSum;
-      start = current;
-      end = i;
-    } else if (currSum <= 0) {
-      thisSum = 1;
-      current = i + 1;
-    }
+      if (currSum > maxSum) {
+        maxSum = currSum;
+        start = current;
+        end = i;
+      } else if (currSum <= 0) {
+        currSum = 1;
+        current = i + 1;
+      }
   }
   List<Integer> result = Arrays.asList(arr).subList(start, end + 1);
   System.out.println("Max subsequence is: " + result +
