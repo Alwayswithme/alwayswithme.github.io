@@ -53,3 +53,30 @@ void rotate(char[] str, int m) {
   }
 }
 {% endhighlight %}
+
+* 递归转换法
+{% highlight java %}
+void rotate(char[] str, int n, int m, int head, int tail, boolean flag) {
+  // 递归结束条件
+  if (head == tail || m <= 0)
+    return;
+  if (flag) {
+    // 右移
+    int p1 = head;
+    int p2 = head + m;
+    int k = (n - m) - n%m;
+    for (int i = 0; i < k; i++, p1++, p2++)
+      swap(str[p1], str[p2]);
+    rotate(str, n - k, n % m, p1, tail, false);
+  }else {
+    // 左移
+    int p1 = tail;
+    int p2 = tail - m;
+
+    int k = (n - m) - n % m;
+    for (int i = 0; i < k; i++, p1--, p2--)
+      swap(str[p1], str[p2]);
+    rotate(str, n - k, n % m, head, p1, true);
+  }
+}
+{% endhighlight %}
