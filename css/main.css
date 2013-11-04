@@ -43,6 +43,7 @@ ul.posts {
 
 ul.posts li {
   line-height: 1.75em;
+  border-bottom: 2px solid gainsboro;
 }
 
 ul.posts span {
@@ -169,6 +170,7 @@ footer {
 .site .footer li a:hover,
 .site .footer li a:active {
   text-decoration:none;
+  text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
   color: skyblue;
 }
 
@@ -263,3 +265,12 @@ code {
 #html5 {
   float: right
 }
+ .section-nav .left {
+   float: left;
+ }
+ .section-nav .right {
+   float: right;
+ }
+ .clear {
+   clear: both
+ }
