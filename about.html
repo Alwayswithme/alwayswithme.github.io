@@ -9,8 +9,31 @@ title: About Me - Thank you for comming
   >
 </iframe>
 
-<div id="contact">
-  <ul>
-    <li><a target="_blank" href="http://book.douban.com/people/phX_Yip">豆瓣读书</a></li>
-  </ul>
-</div>
+<div class="post highlight"><pre><code class="java"><span class="lineno"> 1</span> <span class="kd">public</span> <span class="kd">class</span> <span class="nc">AboutMe</span> <span class="o">{</span>
+<span class="lineno"> 2</span>   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+<span class="lineno"> 3</span>     <span class="n">Class</span><span class="o">&lt;?&gt;</span> <span class="n">me</span> <span class="o">=</span> <span class="n">Class</span><span class="o">.</span><span class="na">forName</span><span class="o">(</span><span class="s">&quot;PhoenixYip&quot;</span><span class="o">);</span>
+<span class="lineno"> 4</span>     <span class="k">for</span> <span class="o">(</span><span class="n">Class</span><span class="o">&lt;?&gt;</span> <span class="nl">cls:</span> <span class="n">me</span><span class="o">.</span><span class="na">getInterfaces</span><span class="o">())</span>
+<span class="lineno"> 5</span>       <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&quot;# =&gt; I&#39;m a %s\n&quot;</span><span class="o">,</span> <span class="n">cls</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+<span class="lineno"> 6</span> 
+<span class="lineno"> 7</span>     <span class="k">for</span> <span class="o">(</span><span class="n">Field</span> <span class="nl">f:</span> <span class="n">me</span><span class="o">.</span><span class="na">getDeclaredFields</span><span class="o">())</span>
+<span class="lineno"> 8</span>       <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&quot;# =&gt; Know about %s\n&quot;</span><span class="o">,</span> <span class="n">f</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+<span class="lineno"> 9</span> 
+<span class="lineno">10</span>     <span class="k">for</span> <span class="o">(</span><span class="n">Method</span> <span class="nl">m:</span> <span class="n">me</span><span class="o">.</span><span class="na">getDeclaredMethods</span><span class="o">())</span>
+<span class="lineno">11</span>       <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&quot;# =&gt; Be fond of %s\n&quot;</span><span class="o">,</span> <span class="n">m</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+<span class="lineno">12</span>   <span class="o">}</span>
+<span class="lineno">13</span> <span class="o">}</span>
+<span class="lineno">14</span> <span class="cm">/*</span>
+<span class="lineno">15</span> <span class="cm"> * # =&gt; I&#39;m a Coder</span>
+<span class="lineno">16</span> <span class="cm"> * # =&gt; I&#39;m a Linuxer</span>
+<span class="lineno">17</span> <span class="cm"> * </span>
+<span class="lineno">18</span> <span class="cm"> * # =&gt; Know about C</span>
+<span class="lineno">19</span> <span class="cm"> * # =&gt; Know about JAVA</span>
+<span class="lineno">20</span> <span class="cm"> * # =&gt; Know about HTML5</span>
+<span class="lineno">21</span> <span class="cm"> * </span>
+<span class="lineno">22</span> <span class="cm"> * # =&gt; Be fond of usingVim</span>
+<span class="lineno">23</span> <span class="cm"> * # =&gt; Be fond of reading</span>
+<span class="lineno">24</span> <span class="cm"> * # =&gt; Be fond of runing</span>
+<span class="lineno">25</span> <span class="cm"> * # =&gt; Be fond of coding</span>
+<span class="lineno">26</span> <span class="cm"> * # =&gt; Be fond of learning</span>
+<span class="lineno">27</span> <span class="cm"> */</span>
+</code></pre></div>

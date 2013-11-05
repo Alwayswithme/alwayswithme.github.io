@@ -80,3 +80,22 @@ void rotate(char[] str, int n, int m, int head, int tail, boolean flag) {
   }
 }
 {% endhighlight %}
+
+* 循环移位法
+{% highlight java %}
+void rotate(char[] str, int m) {
+  int lenOfStr = str.length;
+  int numOfGroup = gcd(lenOfStr, m);
+  int i, j;
+
+  for (i = 0; i < numOfGroup; i++) {
+    char tmp = str[i];
+    int last = i;
+    for ( j = (i + m)%lenOfStr; j != i; j = (j + m) % lenOfStr) {
+      str[last] = str[j];  // 移入前一个位置
+      last = j;            // 记录下一个要移入的位置
+    }
+    str[last] = tmp;
+  }
+}
+{% endhighlight %}
