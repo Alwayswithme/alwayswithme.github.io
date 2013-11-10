@@ -1,0 +1,36 @@
+---
+layout: post
+title: "aboutme material"
+date: 2013-11-05 14:44:04
+categories: jekyll update
+published: false
+---
+{% highlight java linenos %}
+public class AboutMe {
+  public static void main(String[] args) throws Exception {
+    Class<?> me = Class.forName("PhoenixYip");
+    for (Class<?> cls: me.getInterfaces())
+      System.out.printf("# => I'm a %s\n", cls.getName());
+
+    for (Field f: me.getDeclaredFields())
+      System.out.printf("# => Know about %s\n", f.getName());
+
+    for (Method m: me.getDeclaredMethods())
+      System.out.printf("# => Be fond of %s\n", m.getName());
+  }
+}
+/*
+ * # => I'm a Coder
+ * # => I'm a Linuxer
+ * 
+ * # => Know about C
+ * # => Know about JAVA
+ * # => Know about HTML5
+ * 
+ * # => Be fond of usingVim
+ * # => Be fond of reading
+ * # => Be fond of runing
+ * # => Be fond of coding
+ * # => Be fond of learning
+ */
+{% endhighlight %}
