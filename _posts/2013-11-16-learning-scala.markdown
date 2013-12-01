@@ -7,6 +7,7 @@ categories   :  jekyll update
 在[COURSERA](http://class.coursera.org/progfun-003/class/index)跟设计者学习Scala
 
 ### 编码风格
+
 * 避免使用`isInstanceOf`或者`asInstanceOf`进行类型转换
 * 使用两个空格进行缩进
 * 不需要使用分号
@@ -14,6 +15,7 @@ categories   :  jekyll update
 
 
 ### 函数式编程
+
 * 不可变性
 * 利于模块化
 * 函数是一等公民,可以作为变量,参数等
@@ -21,10 +23,12 @@ categories   :  jekyll update
 
 
 ### Call-by-name & Call-by-value
+
 * substitution model
 * 只要保证是纯函数并有中止条件,两种调用方式结果一致
 * Call-by-name 函数体中没有用到的参数可以不计算
 * Call-by-value 只对参数计算一次
+
 {% highlight scala %}
 def loop: Int = loop
 
@@ -46,6 +50,7 @@ constOne(loop, 1+2) // infinite loop
 
 
 ### 代码块与作用域
+
 * avoid "name-space pollution"
 {% highlight scala %}
 def abs(x: Double) = if (x < 0) -x else x
@@ -84,12 +89,14 @@ def sqrt(x: Double) = {
 
 ### 尾递归
 函数调用自身是最后一步操作,栈可以重用避免溢出
+
 * __Base cases__. You must always have some base cases, which can be solved without recursion.
 * __Making progress__. For the cases that are to be solved recursively, the recursive call must
 always be to a case that makes progress toward a base case.
 * __Design rule__. Assume that all the recursive calls work.
 * __Compound interest rule__. Never duplicate work by solving the same instance of a problem in
 separate recursive calls.
+
 {% highlight scala %}
 // tail recursion: Euclid's algorithm
 def gcd(a: Int, b: Int): Int =
@@ -110,7 +117,8 @@ def fact(n: Int): Int = {
 {% endhighlight %}
 
 ### 高阶函数
-函数可以作为参数或返回值
+
+函数可以作为__参数__或__返回值__
 {% highlight scala %}
 def id(x: Int): Int = x
 def cube(x: Int): Int = x * x * x
@@ -153,6 +161,7 @@ def sumFactorials(a: Int, b: Int) = sum(fact, a, b)
 {% endhighlight %}
 
 ### 柯里化
+
 * 接受多个参数的函数变换为接受一个参数的函数,并返回接受余下参数的新函数
 {% highlight scala %}
 // sum is now a function that returns another function
@@ -203,3 +212,51 @@ def sum(f: Int => Int)(a: Int, b: Int): Int =
 def product(f: Int => Int)(a: Int, b: Int): Int =
   mapReduce(f, (x, y) => x * y, 1)(a, b)
 {% endhighlight %}
+
+### Finding fixed point
+
+* 欺负我数学不好 T_T  
+* fixed point: 如果一个数x满足f(x) = x, 就称之为方程的fixed point. 没理解错的话,就是y=x和y=f(x)的交点  
+* 于是可通过重复的迭代 x, f(x), f(f(x)), f(f(f(x))), ... 求出
+{% highlight scala %}
+val tolerance  = 0.0001
+// 判断是否满足所需精度
+def isClosedEnough(x: Double, y: Double) =
+  abs((x - y) / x) / x < tolerance
+// 接受一个函数和初值并计算fixed point
+def fixedPoint(f: Double => Double)(firstGuess: Double) = {
+  def iterate(guess: Double): Double = {
+    val next = f(guess)
+    if (isCloseEnough(guess, next)) next
+    else iterate(next)
+  }
+  iterate(firstGuess)
+}
+fixedPoint(x => 1 + x/2)(1.0)  // 计算出一个接近2的数
+
+// fixedPoint(x => 2 / x)(1.0)
+/* 上面的调用不能计算出fixed point, 就是根号2, 循环无法中止
+ * guess的值在1和2之间变化, 控制变化差异, 取均值
+ */
+fixedPoint(x => (x + 2 / x) / 2)(1.0) // 计算出1.414....
+
+// 继续抽象
+def averageDamp(f: Double => Double)(x: Double) = (x + f(x)) / 2
+/* sqrt 可以这样定义, 这里有一点tricky, averageDamp接受一个
+ * 函数,并返回一个高阶匿名函数再传入fixedPoint中
+ */
+def sqrt(x: Double) =
+  fixedPoint(averageDamp(y => x / y))(1)
+{% endhighlight %}
+
+## Syntax summary
+======================
+
+#### Types
+
+    Type         = SimepleType | FunctionType
+    FunctionType = SimpleType '=>' Type
+    SimpleType   = Ident
+    Types        = Type { ',' Type }
+
+#### Expressions

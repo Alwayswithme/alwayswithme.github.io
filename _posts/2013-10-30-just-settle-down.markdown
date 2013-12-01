@@ -24,6 +24,9 @@ $ yum install ruby gcc
 $ gem sources --remove https://rubygems.org/
 $ gem sources -a http://ruby.taobao.org
 
+# ruby版本1.9以上
+$ gem install jekyll
+
 # 在家新建一个website
 $ cd; jekyll new alwayswithme
 
