@@ -249,8 +249,9 @@ def sqrt(x: Double) =
   fixedPoint(averageDamp(y => x / y))(1)
 {% endhighlight %}
 
-## Syntax summary
-======================
+- - -
+
+### Syntax summary
 
 #### Types
 
@@ -260,3 +261,21 @@ def sqrt(x: Double) =
     Types        = Type { ',' Type }
 
 #### Expressions
+
+    Expr         = InfixExpr | FunctionExpr | if '(' Expr ')' Expr else Expr
+    InfixExpr    = PrefixExpr | InfixExpr Operator InfixExpr
+    Operator     = ident
+    PrefixExpr   = ['+' | '-' | '!' | '~'] SimepleExpr
+    SimepleExpr  = ident | literal | SimepleExpr '.' ident | Block
+    FunctionExpr = Bindings '=>' Expr
+    Bindings     = ident [':' SimpleType] | '(' [Binding {',' Binding}] ')'
+    Bingding     = ident [':' Type]
+    Block        = '{' {Def ';'} Expr '}'
+
+#### Definitions
+
+    Def          = FunDef | ValDef
+    FunDef       = def ident {'(' [Parameters] ')'} [':' Type] '=' Expr
+    ValDef       = val ident [':' Type] '=' Expr
+    Parameter    = ident ':' [ '=>' ] Type
+    Parameters   = Parameter {',' Parameter}
