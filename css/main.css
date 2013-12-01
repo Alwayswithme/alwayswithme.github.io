@@ -14,7 +14,7 @@ html, body { height: 100%; }
 
 body {
   background-color: #FFF;
-  font: 13.34px Helvetica, "Trebuchet MS", "Microsoft YaHei", Arial, sans-serif;
+  font: 13.34px Helvetica, "Trebuchet MS", "文泉驿微米黑", "Microsoft YaHei", Arial, sans-serif;
   font-size: small;
   background:url('../images/white_texture.png') repeat;
   color: rgb(34, 34, 34);
