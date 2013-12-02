@@ -1,9 +1,12 @@
 ---
 layout: default
 ---
-<time class="meta">{{ page.date | date_to_string }}</time>
-<h2>{{ page.title }}</h2>
+
 <article class="post">
+<h1 class="post-title"><a title="{{ page.title }}" href="{{ site.url }}{{ page.url }}">{{ page.title }}</a></h2>
+<div class="post-meta">
+<time>{{ page.date | date_to_string }}</time> - {{ page.categories }}
+</div>
 {{ content }}
 </article>
 {% include section_nav.html %}
