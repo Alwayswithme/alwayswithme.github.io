@@ -17,26 +17,26 @@ categories: jekyll update
 [chrome]: http://www.google.com/chrome
 
 部署过程大致如下
-{% highlight bash %}
-$ yum install ruby gcc
+{% highlight bash  linenos=table %}
+~ $ sudo yum install ruby gcc
 
 # gem 换淘宝源
-$ gem sources --remove https://rubygems.org/
-$ gem sources -a http://ruby.taobao.org
+~ $ gem sources --remove https://rubygems.org/
+~ $ gem sources -a http://ruby.taobao.org
 
 # ruby版本1.9以上
-$ gem install jekyll
+~ $ sudo gem install jekyll
 
 # 在家新建一个website
-$ cd; jekyll new alwayswithme
+~ $jekyll new alwayswithme
 
 # 启动服务器
-$ jekyll serve --watch
+~ $ cd ~/alwayswithme;jekyll serve --watch
 
 # 地址栏输入0:4000应该可以看到生成页面
 
 # 使用git pages前准备一个username.github.io的仓库
-$ git init
-$ git remote add origin git@github.com:Alwayswithme/alwayswithme.github.io.git
-$ git add . && git commit -m 'initial commit'
+~ $ git init
+~ $ git remote add origin git@github.com:Alwayswithme/alwayswithme.github.io.git
+~ $ git add . && git commit -m 'initial commit'
 {% endhighlight %}

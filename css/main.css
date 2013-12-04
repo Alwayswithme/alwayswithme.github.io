@@ -58,18 +58,35 @@ hr {
 }
 ul.posts {
   list-style-type: none;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
 
 ul.posts li {
   line-height: 1.75em;
   font-size: 125%;
+  transition: margin 1s ease-in;
+}
+ul.posts li a:hover {
   border-bottom: 2px solid gainsboro;
+}
+/* TODO
+  content: "";
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent transparent #444;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 0px;
+  left: -30px;
+*/
+ul.posts li:hover {
+  margin-left: 1em;
 }
 
 ul.posts span {
   color: #aaa;
-  font-family: Monaco, "Courier New", monospace;
+  font-family: Monaco, consolas, "Courier New", monospace;
   font-size: 80%;
 }
 ul {
@@ -117,15 +134,15 @@ ul {
   margin-left: 1.35em;
 }
 
+.post pre code {
+  border: none;
+}
 .post code {
   border: 2px solid #ddd;
   padding: 0 .2em;
-  color: blueviolet;
 }
-
-.post pre code {
-  color: white;
-  border: none;
+code, .code {
+  color: olive;
 }
 
 .post pre {
@@ -155,6 +172,7 @@ ul {
 }
 /* date */
 time.meta {
+  margin-left: 30px;
   font-size: 80%;
   color: white;
   border-radius: 5px;

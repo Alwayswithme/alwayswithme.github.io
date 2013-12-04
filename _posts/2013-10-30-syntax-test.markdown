@@ -39,13 +39,13 @@ public class MaxSubsequence {
     int maxSum, currSum, start, end, current;
     maxSum = start = end = current = 0;
     currSum = 1;
-    for (int i = 0; len = arr.length; i < len; i++) {
+    for (int i = 0, len = arr.length; i < len; i++) {
       currSum *= arr[i];
       if (currSum > maxSum) {
         maxSum = currSum;
         start = current;
         end = i;
-      } else if (currSum <= 0) {
+      } else if (currSum = 0) {
         currSum = 1;
         current = i + 1;
       }
