@@ -55,3 +55,4 @@ class Rational(x: Int, y: Int) {
    */
   def sub(that: Rational) = add(that.neg)
 }
+{% endhighlight %}
