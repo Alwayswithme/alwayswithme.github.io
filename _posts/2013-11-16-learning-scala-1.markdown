@@ -2,7 +2,7 @@
 layout       :  post
 title        :  Learning Scala - 1
 date         :  2013-11-16 15:06:35
-categories   :  jekyll update
+categories   :  notes
 ---
 在[COURSERA](http://class.coursera.org/progfun-003/class/index)跟设计者学习Scala
 

@@ -2,7 +2,7 @@
 layout       :  post
 title        :  Learning Scala - 2
 date         :  2013-11-16 15:06:35
-categories   :  jekyll update
+categories   :  notes
 ---
 ### Functions and Data
 
