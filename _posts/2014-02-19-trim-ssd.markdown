@@ -1,0 +1,25 @@
+---
+layout       :  post
+title        :  "Trim ssd automactically"
+date         :  2014-02-19 18:37:36
+categories   :  jekyll update
+---
+### 改用cron定时trim ###
+发现discard挂载的参数触发trim太频繁，取消之。换用fstrim定时触发搞定
+
+{% highlight bash %}
+~ # vi bin/trim.sh
+-----------------------
+#! /bin/bash
+#用fstrim对挂载点进行trim操作，并记录日期和结果
+
+LOGFILE=/var/log/trim.log
+TIME=$(date +%F)
+OP=$(fstrim -v /)
+echo ${TIME} : ${OP} >> $LOGFILE
+-----------------------
+
+{% endhighlight %}
+
+除了从/etc/fstab删除discard选项，并把上面的脚本放入/etc/cron.daily  
+或建立符号链接，fedora的anacron会自动比对timestamp并执行,而且不用担心关机问题
