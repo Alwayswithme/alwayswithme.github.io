@@ -18,7 +18,7 @@ categories: jekyll update
 
 部署过程大致如下
 {% highlight bash  linenos=table %}
-~ $ sudo yum install ruby gcc
+~ $ sudo yum install ruby gcc ruby-devel
 
 # gem 换淘宝源
 ~ $ gem sources --remove https://rubygems.org/
