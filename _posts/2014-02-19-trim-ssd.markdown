@@ -22,4 +22,4 @@ echo ${TIME} : ${OP} >> $LOGFILE
 {% endhighlight %}
 
 除了从/etc/fstab删除discard选项，并把上面的脚本放入/etc/cron.daily  
-或建立符号链接，fedora的anacron会自动比对timestamp并执行,而且不用担心关机问题
+或建立符号链接，fedora的anacron会自动比对timestamp并执行,不用担心关机无法执行
