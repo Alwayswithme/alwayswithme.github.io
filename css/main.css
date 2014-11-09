@@ -357,3 +357,6 @@ header a.extra:hover {
   border: 0;
 }
 
+.card {
+  margin: 10px 0 0 5%;
+}
