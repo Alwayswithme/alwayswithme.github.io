@@ -23,6 +23,7 @@ categories   :  jekyll update
 ## 使用Netty的NIO方式实现
 传统的ServerSocket.accept()方式会在每次调用都会阻塞，每一个Socket连接都需要启动新线程。
 Netty则可以用非阻塞异步的方式处理请求，而且自带大部分编解码器可以完成需求。
+
 * DelimiterBasedFrameDecoder 将接收到的ByteBuf按指定分隔符分割，此处需要用到Delimiters.nulDelimiter()
 * StringDecoder和StringEncoder 将读入或写出的ByteBUf解编码为String
 * IdleStateHandler 读超时事件触发时，可以及时关闭Channel
@@ -65,5 +66,5 @@ public class FlashPolicyHandler  extends SimpleChannelInboundHandler<String> {
 }
 {% endhighlight %}
 
-[完整代码](https://github.com/Alwayswithme/FlashPolicyServer)
-[see also](http://www.adobe.com/devnet/flashplayer/articles/socket_policy_files.html)
+[完整代码](https://github.com/Alwayswithme/FlashPolicyServer)  
+[see also](http://www.adobe.com/devnet/flashplayer/articles/socket_policy_files.html)  

@@ -1,6 +1,6 @@
 .highlight  {
   width: 94%;
-  margin: 1em auto;
+  margin: 1em auto 5%;
 }
 .highlight .bp { color: #f8f8f2 } /* Name.Builtin.Pseudo */
 .highlight .c { color: #75715e; font-style: italic } /* Comment */

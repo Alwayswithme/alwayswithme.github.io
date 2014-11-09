@@ -40,6 +40,10 @@ h1, h2, h3 {
   color: #2c5aa0;
   font-weight: normal;
 }
+article h1, article h2, article h3,
+article h4, article h5 {
+  margin: 1em 0px;
+}
 p { margin: 1em 0; }
 
 h1 a {
@@ -198,7 +202,11 @@ time.meta {
 code {
   font-family: "Ubuntu Mono", Monaco, Consolas, Courier,"Microsoft YaHei", monospace;
 }
-
+.post-title,
+.posts a,
+.section-nav {
+  text-transform: capitalize;
+}
 .section-nav .left {
  float: left;
  margin-left: 5%;
