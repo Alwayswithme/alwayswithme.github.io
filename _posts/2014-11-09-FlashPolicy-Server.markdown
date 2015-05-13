@@ -5,7 +5,7 @@ date         :  2014-11-09 17:35:16
 categories   :  jekyll update
 ---
 ## Flash安全策略
-客户端发送字符串以`NULL`结尾的请求字符串`<policy-file-request/>`到服务器
+客户端发送字符串以`NULL`结尾的请求字符串`<policy-file-request/>`到服务器  
 服务器返回策略文件响应，内容如下：
 {% highlight xml %}
 <?xml version="1.0"?> 

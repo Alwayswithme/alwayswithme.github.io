@@ -8,13 +8,12 @@ categories: jekyll update
 错手删掉自己的wordpress博客,塞翁失马,终于下定决心迁移到jekyll.  
 页面大部分都采用HTML5语义化标签,也用了部分CSS3  
 其他不遵循标准的浏览器没有过多测试,请对自己好一点,换用较新的浏览器,谢谢!
-比如:
+比如:  
 ---
 [遇见最好的浏览器][firefox]  
 [快速免费的浏览器][chrome]  
 或者升级一下您的IE!
-[firefox]: http://www.mozilla.org/en-US/firefox/fx/
-[chrome]: http://www.google.com/chrome
+
 
 部署过程大致如下
 {% highlight bash  linenos=table %}
@@ -40,3 +39,7 @@ categories: jekyll update
 ~ $ git remote add origin git@github.com:Alwayswithme/alwayswithme.github.io.git
 ~ $ git add . && git commit -m 'initial commit'
 {% endhighlight %}
+
+
+[firefox]: http://www.mozilla.org/en-US/firefox/fx/
+[chrome]: http://www.google.com/chrome

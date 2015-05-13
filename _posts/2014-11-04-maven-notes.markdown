@@ -2,7 +2,7 @@
 layout       :  post
 title        :  "maven notes"
 date         :  2014-11-04 14:43:11
-categories   :  jekyll update
+categories   :  notes
 ---
 ## 安装Maven
 {% highlight bash %}
@@ -52,4 +52,66 @@ categories   :  jekyll update
 ~ $ mvn test               #进行单元测试
 ~ $ mvn package            #打包
 ~ $ mvn clean              #清理
+{% endhighlight %}
+
+## pom.xml 配置
+{% highlight xml %}
+<!-- 属性 在xml中通过 ${ } 获取-->
+<properties>
+  <myprop>tets</myprop>
+</properties>
+
+<!-- 指定 main/resources 外的资源 copy 到 build.path -->
+<resources>
+  <resource>
+    <directory>src/main/java/</directory>
+      <includes>
+        <include>**/*Mapper.xml</include>
+      </includes>
+      <excludes>
+        <exclude>**/*test*.java</exclude>
+      </excludes>
+ </resource>
+</resources>
+
+<!-- 各种插件 -->
+<plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-compiler-plugin</artifactId>
+  <version>3.3</version>
+  <configuration>
+    <source>1.7</source>
+    <target>1.7</target>
+    <encoding>UTF-8</encoding>
+  </configuration>
+</plugin>
+<plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-jar-plugin</artifactId>
+  <version>2.6</version>
+  <configuration>
+    <archive>
+      <manifest>
+        <addClasspath>true</addClasspath>
+        <classpathPrefix>lib/</classpathPrefix>
+        <mainClass>me.phx.flash.policy.FlashPolicyServer</mainClass>
+      </manifest>
+    </archive>
+  </configuration>
+</plugin>
+<plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-dependency-plugin</artifactId>
+  <version>2.10</version>
+  <executions>
+    <execution>
+      <id>copy</id>
+      <phase>package</phase>
+      <goals><goal>copy-dependencies</goal></goals>
+      <configuration>
+        <outputDirectory>${project.build.directory}/lib</outputDirectory>
+      </configuration>
+    </execution>
+  </executions>
+</plugin>
 {% endhighlight %}
