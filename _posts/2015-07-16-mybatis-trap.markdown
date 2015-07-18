@@ -34,4 +34,20 @@ if (handler == null && type != null && type instanceof Class && Enum.class.isAss
 
 ## XML和Annotation 混用时仅声明Cache的地方开启缓存
 
-## 慎用@Option
+## 慎用@Options
+MyBatis 缓存默认行为是使用`select`语句时使用缓存，其他则清空:
+{% highlight xml %}
+<select ... flushCache="false" useCache="true"/>
+<insert ... flushCache="true"/>
+<update ... flushCache="true"/>
+<delete ... flushCache="true"/>
+{% endhighlight %}
+
+但用Annotation有一点例外，就是 `@Insert` 和 `Options` 注解一起使用时，
+要明确指定是否flushCache，不然会导致缓存不清空。具体可看@Options源码：
+{% highlight java %}
+public @interface Options {
+  boolean flushCache() default false;
+}
+{% endhighlight %}
+
