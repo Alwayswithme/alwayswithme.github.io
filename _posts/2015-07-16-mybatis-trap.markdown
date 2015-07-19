@@ -31,6 +31,10 @@ if (handler == null && type != null && type instanceof Class && Enum.class.isAss
 数量多时如果通过java-config配置可以扫描出这些枚举类，遍历注册，[代码](https://github.com/Alwayswithme/spitter/blob/master/src/main/java/me/phx/config/MybatisConfig.java#L44)
 
 ## 二级缓存Evict难以控制
+二级缓存问题，它是基于每个mapper的命名空间，假设有员工，公司。
+员工mapper中某一个select根据employee_id查询查员工，根据company_id嵌套查询其公司
+这个select被缓存后，
+然后在公司mapper中CUD一番，怎么让员工mapper中那个select清空缓存？
 
 ## XML和Annotation 混用时仅声明Cache的地方开启缓存
 
