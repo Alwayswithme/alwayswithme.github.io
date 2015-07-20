@@ -37,8 +37,8 @@ if (handler == null && type != null && type instanceof Class && Enum.class.isAss
 这个select被缓存后，
 然后在公司mapper中CUD一番，怎么让员工mapper中那个select清空缓存？
 
-有人为此制作了插件[mybatis-enhanced-cache](https://github.com/LuanLouis/mybatis-enhanced-cache)
-另外可以考虑Spring Cache Abstraction, 基于Annotation, 有多种实现可以选择 EhCache, Guava 等
+有人为此制作了插件[mybatis-enhanced-cache](https://github.com/LuanLouis/mybatis-enhanced-cache).  
+另外可以考虑Spring Cache Abstraction, 基于Annotation, 有多种实现可以选择 *EhCache*, *Guava* 等。
 
 ## XML和Annotation 混用时仅声明Cache的地方开启缓存
 
@@ -56,8 +56,8 @@ MyBatis 缓存默认行为是使用`select`语句时使用缓存，其他则清�
 <delete ... flushCache="true"/>
 {% endhighlight %}
 
-但用Annotation有一点例外，就是 `@Insert` 和 `Options` 注解一起使用时，
-要明确指定是否flushCache，不然会导致缓存不清空。具体可看@Options源码：
+但用Annotation有一点例外，就是 `@Insert` 和 `@Options` 注解一起使用时，
+要明确指定是否flushCache，不然会导致缓存不清空。具体可看`@Options`源码：
 {% highlight java %}
 public @interface Options {
   boolean flushCache() default false;
