@@ -21,7 +21,7 @@ categories: jekyll update
 
 # gem 换淘宝源
 ~ $ gem sources --remove https://rubygems.org/
-~ $ gem sources -a http://ruby.taobao.org
+~ $ gem sources -a https://ruby.taobao.org
 
 # ruby版本1.9以上
 ~ $ sudo gem install jekyll
