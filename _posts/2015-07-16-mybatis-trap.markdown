@@ -66,3 +66,48 @@ public @interface Options {
 }
 {% endhighlight %}
 
+## SqlSession 容易出错
+
+用 SqlSession 调用语句需要提供字符串和指定类型，滥用容易导致出错且编译器不好检查，  
+SqlSession 调用查询方法本质都是 selectList 虽然它提供一些便利的方法的方法：
+{% highlight java %}
+  public <T> T selectOne(String statement, Object parameter) {
+    // Popular vote was to return null on 0 results and throw exception on too many.
+    List<T> list = this.<T>selectList(statement, parameter);
+    if (list.size() == 1) {
+      return list.get(0);
+    } else if (list.size() > 1) {
+      throw new TooManyResultsException("Expected one result (or null) to be returned by selectOne(), but found: " + list.size());
+    } else {
+      return null;
+    }
+  }
+
+    public <K, V> Map<K, V> selectMap(String statement, Object parameter, String mapKey, RowBounds rowBounds) {
+    final List<? extends V> list = selectList(statement, parameter, rowBounds);
+    final DefaultMapResultHandler<K, V> mapResultHandler = new DefaultMapResultHandler<K, V>(mapKey,
+        configuration.getObjectFactory(), configuration.getObjectWrapperFactory(), configuration.getReflectorFactory());
+    final DefaultResultContext<V> context = new DefaultResultContext<V>();
+    for (V o : list) {
+      context.nextResultObject(o);
+      mapResultHandler.handleResult(context);
+    }
+    return mapResultHandler.getMappedResults();
+  }
+{% endhighlight %}
+
+Guava 配合 Mapper 返回的 List 也可方便做到：
+{% highlight java %}
+List<Post> posts = BlogMapper.selectPost(1);
+
+// sqlSession.selectOne("BlogMapper.selectPost", 1);
+Post onePost = Iterables.getOnlyElements(posts);
+
+// sqlSession.selectMap("BlogMapper.selectPost", 1, "id");
+Map<Integer, Post> postMapById = Maps.uniqueIndex(body, new Function<Post, Integer>() {
+    @Override
+    public Integer apply(House input) {
+        return input.getId();
+    }
+});
+{% endhighlight %}
