@@ -104,7 +104,7 @@ List<Post> posts = BlogMapper.selectPost(1);
 Post onePost = Iterables.getOnlyElements(posts);
 
 // sqlSession.selectMap("BlogMapper.selectPost", 1, "id");
-Map<Integer, Post> postMapById = Maps.uniqueIndex(body, new Function<Post, Integer>() {
+Map<Integer, Post> postMapById = Maps.uniqueIndex(posts, new Function<Post, Integer>() {
     @Override
     public Integer apply(House input) {
         return input.getId();
