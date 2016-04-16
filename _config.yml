@@ -10,5 +10,5 @@ github_username:  Alwayswithme
 
 # Build settings
 markdown: kramdown
-highlighter: pygments
+highlighter: rouge
 # permalink: /:categories/:short_year/:month/:day/:title/
