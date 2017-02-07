@@ -1,3 +1,8 @@
+---
+layout: page
+title: resume
+permalink: /resume/
+---
 # 联系方式
 
 
