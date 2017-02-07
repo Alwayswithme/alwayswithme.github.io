@@ -1,8 +1,9 @@
 ---
 layout: page
-title: resume
+title: Resume
 permalink: /resume/
 ---
+
 # 联系方式
 
 
