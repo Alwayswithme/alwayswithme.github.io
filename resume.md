@@ -17,8 +17,8 @@ QQ/微信号：284718971
 *   男/1991
 *   工作年限：3年
 *   本科/华南农业大学生物技术专业 （ 2010年9月 ~ 2014年6月 ）
-*   技术博客：[alwayswithme.github.io][博客]
-*   GitHub: [github.com/Alwayswithme][GitHub]
+*   技术博客： [alwayswithme.github.io][博客]
+*   GitHub： [github.com/Alwayswithme][GitHub]
 
 
 工作经历
