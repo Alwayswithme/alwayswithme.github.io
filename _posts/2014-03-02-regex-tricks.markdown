@@ -4,7 +4,9 @@ title        :  Regex tricks
 date         :  2014-03-02 02:36:52
 categories   :  jekyll update
 ---
-##判断素数
+
+## 判断素数 ##
+
 {% highlight java %}
 boolean isPrime(int n) {
   return !new String(new char[n]).matches("^.?$|^(..+?)\1+$");
@@ -19,7 +21,8 @@ boolean isPrime(int n) {
 {% endhighlight %}
 
 
-##删除指定元素
+## 删除指定元素 ##
+
 {% highlight javascript %}
 //清楚标签
 str.replace(/(<[/]?[^>]+>)/g, '');

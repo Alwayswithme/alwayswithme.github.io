@@ -48,7 +48,9 @@ if (handler == null && type != null && type instanceof Class && Enum.class.isAss
 但是这会导致只有XML上语句有缓存或Mapper接口上的语句有缓存， 取决于你在何处声明。
 因此需要尽量避免混用的情况， 具体可以看我提的[issue](https://github.com/mybatis/spring/issues/62)
 
-## 慎用@Options
+## ~~慎用@Options~~
+
+>2017.02.09：提交了[bug](https://github.com/mybatis/mybatis-3/issues/405)且已被修复,之前的版本需要留意一下
 
 MyBatis 缓存默认行为是使用`select`语句时使用缓存，其他则清空:
 {% highlight xml %}

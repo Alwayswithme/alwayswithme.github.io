@@ -3,6 +3,7 @@ layout: post
 title:  "Syntax test"
 date:   2013-10-30 13:31:00
 categories: jekyll update
+published: false
 ---
 
 ### 语法高亮测试 ###

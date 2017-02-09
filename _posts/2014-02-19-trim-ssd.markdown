@@ -4,8 +4,26 @@ title        :  "Trim ssd automactically"
 date         :  2014-02-19 18:37:36
 categories   :  Miscellaneous
 ---
+
+多数 SSD 都支持通过[Trim](https://en.wikipedia.org/wiki/Trim_(computing))指令以保持长期性能和损耗水平
+
+### 判断是否支持Trim ###
+通过运行命令`lsblk -D`, 检查输出项 `DISC-GRAN` 和 `DISC-MAX` 的值, 非零表示磁盘支持Trim, 示例如下
+{% highlight bash %}
+~ # vi bin/trim.sh
+-----------------------
+NAME   DISC-ALN DISC-GRAN DISC-MAX DISC-ZERO
+sda           0      512B       2G         0
+├─sda1        0      512B       2G         0
+├─sda2        0      512B       2G         0
+└─sda3        0      512B       2G         0
+sr0           0        0B       0B         0
+
+{% endhighlight %}
+
 ### 改用cron定时trim ###
-发现discard挂载的参数触发trim太频繁，取消之。换用fstrim定时触发搞定
+发现discard挂载的参数触发trim太频繁，SATA 3.1 之前, TRIM是同步操作容易导致系统卡顿。
+遂改为用脚本调用 `fstrim` 配合 cron 定时触发
 
 {% highlight bash %}
 ~ # vi bin/trim.sh
@@ -23,3 +41,7 @@ echo ${TIME} : ${OP} >> $LOGFILE
 
 除了从/etc/fstab删除discard选项，并把上面的脚本放入/etc/cron.daily  
 或建立符号链接，fedora的anacron会自动比对timestamp并执行,不用担心关机无法执行
+
+See also
+-------------
+[ArchWiki:Solid State Drives#TRIM](https://wiki.archlinux.org/index.php/Solid_State_Drives#TRIM)
