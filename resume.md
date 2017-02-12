@@ -46,7 +46,7 @@ QQ/微信号：284718971
 
 *   提交的补丁和Bug
 
-    -   [```Pull Request```][GitHub Pull Request] : 给 Netty 提交两次Pull Request， 给 java-design-patterns 提交单例模式的一种实现
+    -   [```Pull Request```][GitHub Pull Request] : 给 Netty 提交两次Pull Request， 给 java-design-patterns 提交一种单例的实现
     -   [```Issue```][GitHub Issue] : 发现 MyBatis 一个 Bug
     -   如出现404，请登陆GitHub
 
