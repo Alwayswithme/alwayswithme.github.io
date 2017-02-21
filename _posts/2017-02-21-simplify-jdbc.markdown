@@ -13,10 +13,10 @@ Java 7 以前的写法
 ----------
 可以看到有很多资源清理的操作，也要手动装载 JDBC 驱动
 ```java
-    private static final String url = "jdbc:mysql://localhost";
-    private static final String user = "root";
-    private static final String pass = "passwd";
-    private static final String statement = "SHOW DATABASES";
+    private static final String URL = "jdbc:mysql://localhost";
+    private static final String USER = "root";
+    private static final String PASSWD = "secret";
+    private static final String STATEMENT = "SHOW DATABASES";
     
     public static void priorJava7JDBC() {
         Connection conn = null;
@@ -25,10 +25,10 @@ Java 7 以前的写法
         try {
             Class.forName("com.mysql.jdbc.Driver");  // 注册驱动
 
-            conn = DriverManager.getConnection(url, user, pass); // 打开连接
+            conn = DriverManager.getConnection(URL, USER, PASSWD); // 打开连接
 
             stmt = conn.createStatement();
-            rs = stmt.executeQuery(statement);  // 执行语句
+            rs = stmt.executeQuery(STATEMENT);  // 执行语句
 
             // 处理结果
             while (rs.next()) {
@@ -63,8 +63,8 @@ Java 7 之后的写法
 通过`try-with-resources` 省略了资源清理的代码，类似与 Python 的 `with` 语法，也无需注册驱动
 ```java
     public static void afterJava7JDBC() {
-        try (Connection connection = DriverManager.getConnection(url, user, pass);
-             PreparedStatement stmt = connection.prepareStatement(statement)) {
+        try (Connection connection = DriverManager.getConnection(URL, USER, PASSWD);
+             PreparedStatement stmt = connection.prepareStatement(STATEMENT)) {
             try (ResultSet rs = stmt.executeQuery()) {
 
                 while(rs.next()) {
