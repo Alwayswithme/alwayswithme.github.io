@@ -1,0 +1,60 @@
+---
+layout       :  post
+title        :  "BCrypt 加密"
+date         :  2017-02-27 09:38:18
+categories   :  jekyll update
+---
+
+采用MD5或SHA-2家族的不可逆哈希函数混淆密码，由于它们被设计用来快速的计算数据的摘要值，通常是不可靠的。随着计算机性能的提高和GPU并行运算优化等手段可以越来越快的计算，降低了暴力破解的难度。  
+BCrypt是一种专门的密码散列函数，在1999年首次发布，各种语言都已有相应实现。它通过引入一个工作因子（work factor）以对抗[摩尔定律](https://zh.wikipedia.org/zh-hans/%E6%91%A9%E5%B0%94%E5%AE%9A%E5%BE%8B)，随着计算能力的提高，也可以相应的加大这个因子提高暴破成本。而且由于计算时间较慢和难以让GPU有效的计算，可以使安全级别大大提高。因此被称为 **A Future-Adaptable Password Scheme** 。
+
+BCrypt 格式
+------------
+
+加密字符串一般类似于`$2a$10$7QDYxuYJBCEKu1q8IMHYg.3lq6OTiA5seEjtnYGOccsC0MkLtvJrS`，可以分为四个部分
+
+```
+$<id>$<cost>$<salt><digest>
+```
+
+*   `<id>` 表示哈希算法和格式, 一到两个字符
+*   `<cost>` 04 ~ 31, 工作因子，要重复迭代`2**cost`次，两个字符
+*   `<salt>` 128位表示的盐，使用特殊的Base64编码为22个字符
+*   `<digest>` 最终的结果值，184位编码为31个字符
+
+>3(美元符号) + 1 or 2 + 2 + 22 + 34 = 59 or 60
+
+所以总长比较固定，数据库可以采用`CHAR(60)`，且无需其他字段存储盐
+
+使用示例
+------------
+
+示例中用到的[BCrypt](docs.spring.io/spring-security/site/docs/current/apidocs/org/springframework/security/crypto/bcrypt/BCrypt.html)由`Spring Security`提供
+
+```java
+public class PasswordHashTest {
+
+    private final String plainPasswd = "1234@abcd";
+
+    @Test
+    public void normalTest() {
+        String hash1 = BCrypt.hashpw(plainPasswd, BCrypt.gensalt());
+        Assert.assertTrue(BCrypt.checkpw(plainPasswd, hash1));
+    }
+
+    @Test
+    public void strongerTest() {
+        // 通常这个测试会跑比较久，计算能力过剩可改为BCrypt.gensalt(31)
+        String hash2 = BCrypt.hashpw(plainPasswd, BCrypt.gensalt(14));
+        Assert.assertTrue(BCrypt.checkpw(plainPasswd, hash2));
+    }
+}
+```
+
+See Also
+-----------
+
+*   [BCrypt Wikipedia](https://en.wikipedia.org/wiki/Bcrypt)
+*   [BCrypt格式介绍](http://stackoverflow.com/questions/5881169/what-column-type-length-should-i-use-for-storing-a-bcrypt-hashed-password-in-a-d)
+*   [How To Safely Store A Password](https://codahale.com/how-to-safely-store-a-password/)
+*   [为何使用BCrypt而不是SHA](http://security.stackexchange.com/questions/133239/what-is-the-specific-reason-to-prefer-bcrypt-or-pbkdf2-over-sha256-crypt-in-pass)
