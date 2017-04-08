@@ -12,3 +12,5 @@ github_username:  Alwayswithme
 markdown: kramdown
 highlighter: rouge
 # permalink: /:categories/:short_year/:month/:day/:title/
+
+theme: jekyll-theme-merlot
