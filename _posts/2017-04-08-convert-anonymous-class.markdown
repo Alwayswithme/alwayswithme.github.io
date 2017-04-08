@@ -1,7 +1,7 @@
 ---
 layout       :  post
 title        :  "改造匿名内部类"
-date         :  2017-04-07 13:32:54
+date         :  2017-04-08 13:32:54
 categories   :  java
 ---
 
@@ -69,7 +69,7 @@ class MyPaging implements Paging {
     }
 }
 ```
-感觉还是比较呆，再稍加修改，主要参考 MyBatis 的 RowBounds。
+感觉还是比较呆，再稍加修改，主要参考 MyBatis 的 RowBounds。除此之外，Spring Data 的 Pageable 及其实现类也是很优雅的分页实现。
 ```java
 public class MyPaging implements Paging {
 
