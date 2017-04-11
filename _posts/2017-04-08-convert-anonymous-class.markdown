@@ -45,9 +45,9 @@ public class Test {
 本质就是一个实现了 `Paging` 接口 data class 就能解决，IDEA 也提供相应的重构方法。先转为内部类，在抽到其他地方统一修改。
 
 * 右键匿名类 -> Refactor -> Convert Anonymous to Inner
-![匿名类重构]({{ "/images/Screenshot_2017-04-08_14-26-39.png" | prepend: site.baseurl }})
+![匿名类重构]({{ "/images/Screenshot_2017-04-08_14-26-39.jpg" | prepend: site.baseurl }})
 * 右键内部类 -> Refactor -> Move
-![内部类重构]({{ "/images/Screenshot_2017-04-08_14-27-17.png" | prepend: site.baseurl }})
+![内部类重构]({{ "/images/Screenshot_2017-04-08_14-27-17.jpg" | prepend: site.baseurl }})
 
 最终类文件变成
 ```java
@@ -127,9 +127,9 @@ public class Anonymous {
 ```
 
 像上面这段代码最终会生成三个类文件，哪怕两个匿名内部类完全一致。
-![匿名类生成三个class]({{ "/images/Screenshot_2017-04-08_15-46-41.png" | prepend: site.baseurl }})
+![匿名类生成三个class]({{ "/images/Screenshot_2017-04-08_15-46-41.jpg" | prepend: site.baseurl }})
 这时可以改为Lambda表达式，使代码更简洁优雅。
-![lambda还是一个class]({{ "/images/Screenshot_2017-04-08_15-45-54.png" | prepend: site.baseurl }})
+![lambda还是一个class]({{ "/images/Screenshot_2017-04-08_15-45-54.jpg" | prepend: site.baseurl }})
 
 两张图对比，还可以得出的结论
 
