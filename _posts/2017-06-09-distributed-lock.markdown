@@ -5,7 +5,7 @@ date         :  2017-06-09 09:44:22
 categories   :  java distributed
 ---
 
-在分布式系统中，如多个实例或集群节点中，要有一种方式来保证同步共享资源的访问。此时编程语言提供的锁同步便无能为力，这时就需要用到分布式锁，分布式锁常用于：
+在分布式系统中，如多个实例或集群节点中，要有一种方式来保证同步共享资源的访问。此时编程语言提供的锁同步便无能为力，这时就需要用到分布式锁。分布式锁常用于：
 
 1. 保证计算效率：通过锁互斥避免消耗大量资源的重复计算，具体场景：防止并发请求
 2. 保证数据一致：保证同一份数据每次只有一个进程修改，具体场景：下单减库存
@@ -29,11 +29,11 @@ categories   :  java distributed
 
 #### 缓存的原子性操作
 
-[MemCache][Memcached] 的 `[ADD](https://github.com/memcached/memcached/wiki/Commands#add)` 命令，这个命令的作用是只有 key 不存在时才添加，可以认为获得了锁。
-[Redis][Redis] 的 `[SET](https://redis.io/commands/set)` 也类似，没有看错，Redis 2.6.12 之后的版本 `SET` 命令可以添加 NX 选项来替代 `SETNX` 。鉴于大量资料还是用 `SETNX`, `GETSET` 等命令组合来检查时间戳加锁，这里有必要提一下。两种方式分别在两个 Redis 命令文档的下面可以查阅。 
+[MemCache][Memcached] 的 [`ADD`](https://github.com/memcached/memcached/wiki/Commands#add) 命令，这个命令的作用是只有 key 不存在时才添加，可以认为获得了锁。
+[Redis][Redis] 的 [`SET`](https://redis.io/commands/set) 也类似，没有看错，Redis 2.6.12 之后的版本 `SET` 命令可以添加 NX 选项来替代 `SETNX` 。鉴于大量资料还是用 `SETNX`, `GETSET` 等命令组合来检查时间戳加锁，这里有必要提一下。两种方式分别在两个 Redis 命令文档的下面可以查阅。 
 
 1. 新的实现方式 `SET` 配合 Lua 脚本：https://redis.io/commands/set
-2. 旧的实现方式 `SETNX`, `GET ` 和 `GETSET`: https://redis.io/commands/setnx 
+2. 旧的实现方式 `SETNX`, `GET` 和 `GETSET`: https://redis.io/commands/setnx 
 
 
 #### ZooKeeper 临时节点
@@ -151,8 +151,8 @@ public class DistributedLockAspect {
 
 Redis 官方提出的一种分布式锁算法 [Redlock](https://github.com/antirez/redis-doc/blob/master/topics/distlock.md)，但可以在文档的[最后](https://github.com/antirez/redis-doc/blob/master/topics/distlock.md#analysis-of-redlock)看到有一些有意思的讨论，分析 Redlock 是否靠谱。
 
-https://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html
-http://antirez.com/news/101
+* https://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html
+* http://antirez.com/news/101
 
 ### 其他更健壮的实现
 
