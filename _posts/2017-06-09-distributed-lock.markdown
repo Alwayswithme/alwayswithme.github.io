@@ -5,8 +5,6 @@ date         :  2017-06-09 09:44:22
 categories   :  java distributed
 ---
 
-## 分布式锁
-
 在分布式系统中，如多个实例或集群节点中，要有一种方式来保证同步共享资源的访问。此时编程语言提供的锁同步便无能为力，这时就需要用到分布式锁，分布式锁常用于：
 
 1. 保证计算效率：通过锁互斥避免消耗大量资源的重复计算，具体场景：防止并发请求
@@ -162,10 +160,11 @@ http://antirez.com/news/101
 * [Curator][]: 一个更高层抽象的 ZooKeeper 客户端，其中的 InterProcessMutex 便是分布式锁
 
 ### 相关链接
-http://www.hollischuang.com/archives/1716
-http://www.importnew.com/20307.html
-https://russellneufeld.wordpress.com/2012/05/24/using-memcached-as-a-distributed-lock-from-within-django/
-https://static.googleusercontent.com/media/research.google.com/zh-CN//archive/chubby-osdi06.pdf
+
+* http://www.hollischuang.com/archives/1716
+* http://www.importnew.com/20307.html
+* https://russellneufeld.wordpress.com/2012/05/24/using-memcached-as-a-distributed-lock-from-within-django/
+* https://static.googleusercontent.com/media/research.google.com/zh-CN//archive/chubby-osdi06.pdf
 
 [Redisson]: https://redisson.org/
 [Curator]: https://curator.apache.org/
